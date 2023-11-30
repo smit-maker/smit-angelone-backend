@@ -52,7 +52,7 @@ On the [Koyeb Control Panel](//app.koyeb.com/apps), click the **Create App** but
 
 1. Select `GitHub` as the deployment method to use
 2. In the repositories list, select the repository you just forked
-3. Specify the branch to deploy, in this case `main`
+. Specify the branch to deploy, in this case `main`
 4. Then, give your service a name, i.e `fastapi-on-koyeb`
 5. Click **Deploy**
 
