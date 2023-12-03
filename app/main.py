@@ -21,22 +21,22 @@ def create_app():
     app = FastAPI(debug=True)
     # app.mount('/static', StaticFiles(directory='static', html=True), name='static')
 
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"],
-        allow_methods=["*"],
-        allow_headers=["*"],
-        allow_credentials=True,
-    )
-    
-    # # Set up CORS middleware
     # app.add_middleware(
     #     CORSMiddleware,
-    #     allow_origins=["http://localhost:5173"],  # Add the origin of your React app
-    #     allow_credentials=True,
-    #     allow_methods=["GET"],
+    #     allow_origins=["*"],
+    #     allow_methods=["*"],
     #     allow_headers=["*"],
+    #     allow_credentials=True,
     # )
+    
+    # Set up CORS middleware
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost:5173", "https://fastapi-on-koyeb-smitinfotech.koyeb.app", "*"],  # Add the origin of your React app
+        allow_credentials=True,
+        allow_methods=["GET"],
+        allow_headers=["*"],
+    )
 
     app.include_router(usersRouter)
     app.include_router(angeloneRouter)
