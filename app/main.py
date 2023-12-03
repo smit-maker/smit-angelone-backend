@@ -7,6 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from .database import engine, Base
 
 # Routers
+from app.router.candleData import router as candleDataRouter
+from app.router.angelone import router as angeloneRouter
 from app.router.users import router as usersRouter
 
 # Models
@@ -37,6 +39,8 @@ def create_app():
     # )
 
     app.include_router(usersRouter)
+    app.include_router(angeloneRouter)
+    app.include_router(candleDataRouter)
 
     return app
 
@@ -46,8 +50,5 @@ app = create_app()
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/{name}")
-def get_name(name: str):
-    return {"Name": name}
 
     
